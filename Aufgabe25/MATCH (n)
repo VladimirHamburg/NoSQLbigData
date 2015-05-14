@@ -1,0 +1,7 @@
+MATCH (n)
+OPTIONAL MATCH (n)-[r]-()
+DELETE n,r
+
+match (x-[:voraussetzung_fur*1..5]->(r)) where(r.title = 'NOSQL') return x,r
+
+match (n) where NOT (n)-[:voraussetzung_fur]->() return n
