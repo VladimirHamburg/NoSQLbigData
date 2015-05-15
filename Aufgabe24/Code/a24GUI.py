@@ -1,7 +1,7 @@
 '''
 Created on 13.05.2015
 
-@author: Vladimir
+@author: Vladimir/Marilena
 '''
 import redis
 import sys

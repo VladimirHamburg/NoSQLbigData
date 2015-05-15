@@ -1,7 +1,7 @@
 '''
 Created on 12.05.2015
 
-@author: Vladimir
+@author: Vladimir/Marilena
 '''
 import redis
 import json
