@@ -5,12 +5,26 @@ Created on 13.05.2015
 '''
 import redis
 import sys
+import time
 
 redisDB = redis.StrictRedis(host='localhost', port=6379, db=0)
+fileData = open('log.log','a')
+
+def writeToFile(s):
+    fileData.write(str(s) + '\n')
 
 def getZIP(com):
-    if redisDB.hexists(com, 'zips'):#Es wird geprüft ob die DB solche Stadt kennt
+    start = time.time()
+    if redisDB.hexists(com, 'zips'):#Es wird geprueft ob die DB solche Stadt kennt
+        stop = time.time()
+        writeToFile('hexists: ' + str(stop-start))
+        start = time.time()
+        #
         zips = redisDB.hget(com, 'zips').decode("utf-8")
+        #
+        stop = time.time()
+        writeToFile('hget: ' + str(stop-start))
+        
         listZIPS = zips.split(';')
         print('ES WURDEN FOLGENDEN PLZs GEFUNDEN: ') 
         for i in listZIPS:
@@ -19,9 +33,22 @@ def getZIP(com):
         print('ES WURDEN KEINE PLZs GEFUNDEN')
         
 def getCityState(com):
-    if redisDB.hexists(com, 'city'):#Es wird geprüft ob die DB solche PLZ kennt
+    start = time.time()
+    if redisDB.hexists(com, 'city'):#Es wird geprueft ob die DB solche PLZ kennt
+        stop = time.time()
+        writeToFile('hexists: ' + str(stop-start))
+        start = time.time()
+        #
         city = redisDB.hget(com, 'city').decode("utf-8") #Abfrage der Stadtname
+        #
+        stop = time.time()
+        writeToFile('hget: ' + str(stop-start))
+        start = time.time()
+        #
         state = redisDB.hget(com, 'state').decode("utf-8")#Abfrage der Staatsname
+        #
+        stop = time.time()
+        writeToFile('hget: ' + str(stop-start))
         out = 'Es ist '+ str(city) + ' in ' + str(state)
         print(out)
     else:
@@ -30,7 +57,7 @@ def getCityState(com):
 wFlag = True
 
 #Die GUI ist eine einfache EIngabe per Konsole
-#Es wird zwischen 4 Zuständen unetrschieden
+#Es wird zwischen 4 Zustaenden unetrschieden
 #    ZIP -> Suche mit PLZ nach Stadt- und Staatsname
 #    CITY -> Suche mit Stadtname nach PLZs
 #    EXIT -> Programm wird beendet
