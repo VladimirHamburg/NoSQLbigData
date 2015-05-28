@@ -1,0 +1,12 @@
+{"name" : "HSV", "gruendung" : "1887, 09, 29", "farben" : ["weiss", "rot"], "tabellenplatz" : 17, "nike" : "n"}
+{"name": "Dortmund", "gruendung": "1909, 12, 19", "farben": ["gelb", "schwarz"], "tabellenplatz": 16, "nike": "n"}  
+{"name": "Schalke", "gruendung": "1904, 5, 4", "farben": ["blau"], "tabellenplatz": 15, "nike": "n"}
+{"name": "Paderborn", "gruendung": "1907, 8, 14", "farben":["blau", "weiss"], "tabellenplatz": 14, "nike":"n"}
+{"name": "Hertha", "gruendung": "1892, 7, 25", "farben": ["blau", "weiss"], "tabellenplatz": 13, "nike": "j"}
+{"name": "Augsburg", "gruendung": "1907, 8, 8", "farben": ["rot", "weiss"], "tabellenplatz": 12,  "nike": "j"}
+{"name": "Pauli", "gruendung": "1910, 5, 15", "farben": ["braun", "weiss"], "tabellenplatz": 11, "nike": "n"}
+{"name": "Gladbach", "gruendung": "1900, 8,1", "farben": ["schwarz", "weiss", "gruen"], "tabellenplatz": 10, "nike": "n"}
+{"name": "Frankfurt", "gruendung": "1899, 3, 8", "farben": ["rot", "schwarz", "weiss"], "tabellenplatz": 9, "nike": "j"}
+{"name": "Leverkusen", "gruendung": "1904, 11, 20", "farben": ["rot", "schwarz"], "tabellenplatz": 8, "nike": "n"}
+{"name": "Stuttgart", "gruendung": "1893, 9, 9", "farben": ["rot", "weiss"], "tabellenplatz": 7, "nike": "n"}
+{"name": "Werder", "gruendung": "1899,2,4", "farben": ["gruen","weiss"], "tabellenplatz": 6, "nike": "j"}
