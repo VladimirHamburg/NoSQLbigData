@@ -19,7 +19,7 @@ db = client.test_db
 my_db = db.my_db
 for line in fileData:
     jsonData = json.loads(line)
-    my_db.insert(line)
+    my_db.insert(jsonData)
 
 
 print(client.name)
