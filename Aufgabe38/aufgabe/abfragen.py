@@ -49,6 +49,18 @@ def rettung():
         jsonData = loads(line)
         if(jsonData["name"] == 'Augsburg'):
             client.vereine_db.fussball.update({'tabellenplatz' : 1},jsonData)
+
+def aenderungLeverkusen():
+    client.vereine_db.fussball.update({'name':"Leverkusen"}, {'$set' :{'tabellenplatz' : 2}})
+
+def aenderungWerder():
+    client.vereine_db.fussball.update({'name' : "Werder"}, {'$inc' : {'tabellenplatz' : -1}})
+
+def aenderungHSV():
+    client.vereine_db.fussball.update({'name':"HSV"}, {'$set' :{'abgestiegen' : "j"}})
+
+def aenderungTemp90():
+    client.vereine_db.fussball.update({'farben':"weiss"}, {'$set' :{'waschtemperatur' : 90}},multi=True)
     
 print('Anfrage 1')
 augsburg()
@@ -68,7 +80,13 @@ print('Aenderung')
 anderung()
 print('Rettung')
 rettung()
-
-
+print('Aenderung 1')
+aenderungLeverkusen()
+print('Aenderung 2')
+aenderungWerder()
+print('Aenderung 3')
+aenderungHSV()
+print('Aenderung 4')
+aenderungTemp90()
 for item in client.vereine_db.fussball.find():
     print(item)
