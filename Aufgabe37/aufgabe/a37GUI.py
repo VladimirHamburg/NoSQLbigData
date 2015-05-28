@@ -11,12 +11,12 @@ client = pymongo.MongoClient("141.22.29.77",27017)
 fileData = open('plz.data','r')
 
 def getZipByCity(com):
-    for item in client.my_db.find( { "city" : com } ):
-        print (item)
+    for item in client.plz_db.plz_collection.find( { "city" : com } ):
+        print (item.get('_id'))
         
 def getCityStateByZip(com):
-    for item in client.my_db.find({"_id": com}):
-        print(item)
+    for item in client.plz_db.plz_collection.find({"_id": com}):
+        print(item.get('city') +', '+item.get('state'))
             
 wFlag = True        
           
