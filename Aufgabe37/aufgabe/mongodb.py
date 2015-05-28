@@ -4,7 +4,9 @@ Created on 22.05.2015
 @author: Vladimir
 @author: Marilena
 '''
-import json
+
+import bson
+from bson.json_util import loads
 import pymongo
 
 
@@ -17,9 +19,10 @@ except (pymongo.errors.ConnectionFailure):
 fileData = open('plz.data','r')
 db = client.test_db
 collection = db.test_collection
+collection.drop()
 for line in fileData:
-    jsonData = json.loads(line)
-    collection.insert(line)
+    jsonData = loads(line)
+    collection.insert_one(jsonData)
 
 
 print(client.name)
