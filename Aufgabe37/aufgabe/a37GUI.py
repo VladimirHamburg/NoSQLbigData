@@ -10,7 +10,17 @@ client = pymongo.MongoClient("141.22.29.77",27017)
   
 fileData = open('plz.data','r')
 
-def getCityByZip(com):
-    for item in client.my_db.find({ _id: com }):
+def getZipByCity(com):
+    for item in client.my_db.find( { "city" : "com" } )
         print item
         
+wFlag = True        
+        
+def work():
+    com = input('Bitte Stadt eingeben:')
+        getZipByCity(com)
+        print()
+    
+        
+while wFlag:
+    work()  
