@@ -14,15 +14,17 @@ def getZipByCity(com):
     for item in client.my_db.find( { "city" : com } ):
         print (item)
         
-'def getCityStateByZip(com): '
-          
+def getCityStateByZip(com):
+    for item in client.my_db.find({"_id": com}):
+        print(item)
+            
 wFlag = True        
           
 def work():
     com = input('WONACH SOLL GESUCHT WERDEN? [ZIP/CITY] ')
     if com == 'ZIP':
         com = input('BITTE ZIP-NUMMER EINGEBEN: ')
-        'getCityStateByZip(com)'
+        getCityStateByZip(com)
         print()
     elif com == 'CITY':
         com = input('BITTE EINEN STADT ANGEBEN: ')
