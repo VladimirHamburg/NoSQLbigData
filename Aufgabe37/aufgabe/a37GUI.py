@@ -12,9 +12,11 @@ fileData = open('plz.data','r')
 
 def getZipByCity(com):
     for item in client.my_db.find( { "city" : com } ):
-        print item
+        print (item)
         
 def getCityStateByZip(com):
+    for item in client.my_db.find({"_id": com}):
+        print(item)
             
 wFlag = True        
           

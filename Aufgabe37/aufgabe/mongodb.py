@@ -16,10 +16,10 @@ except (pymongo.errors.ConnectionFailure):
     
 fileData = open('plz.data','r')
 db = client.test_db
-collection = db.test_collection
+my_db = db.my_db
 for line in fileData:
     jsonData = json.loads(line)
-    collection.insert(line)
+    my_db.insert(line)
 
 
 print(client.name)
