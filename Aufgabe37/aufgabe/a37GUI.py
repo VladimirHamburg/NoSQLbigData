@@ -5,17 +5,27 @@ Created on 25.05.2015
 '''
 import pymongo
 import json
+import time
 
 client = pymongo.MongoClient("141.22.29.77",27017)
-  
-fileData = open('plz.data','r')
 
+fileData = open('log.log','a')
+
+def writeToFile(s):
+    fileData.write(str(s) + '\n')
+    
 def getZipByCity(com):
+    start = time.time()
     for item in client.plz_db.plz_collection.find( { "city" : com } ):
+        stop = time.time()
+        writeToFile('find_city: ' + str(stop-start))
         print (item.get('_id'))
         
 def getCityStateByZip(com):
+    start = time.time()
     for item in client.plz_db.plz_collection.find({"_id": com}):
+        stop = time.time()
+        writeToFile('find_plz: ' + str(stop-start))
         print(item.get('city') +', '+item.get('state'))
             
 wFlag = True        
