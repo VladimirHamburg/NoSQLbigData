@@ -19,8 +19,8 @@ def GetFollowerIDs(self, userid=None, cursor=-1, count = 10):
             try:
                 data = simplejson.loads(json)
                 self._CheckForTwitterError(data)
-                except twitterError:
-                    break
+            except twitter.TwitterError:   #twitterError
+                break
                 return data
 
 def main():
