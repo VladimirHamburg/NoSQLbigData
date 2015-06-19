@@ -3,9 +3,8 @@ Created on 19.06.2015
 
 @author: marilena
 '''
-
 import twitter
-import json
+import simplejson
 
 def GetFollowerIDs(self, userid=None, cursor=-1, count = 10):
     url = 'http://twitter.com/followers/ids.json'
@@ -18,18 +17,18 @@ def GetFollowerIDs(self, userid=None, cursor=-1, count = 10):
             remaining -= 1
             json = self._FetchUrl(url, parameters=parameters)
             try:
-                data = json.loads(json)
+                data = simplejson.loads(json)
                 self._CheckForTwitterError(data)
-            except twitter.TwitterError:
-                    break
-            return data
+            except twitter.TwitterError:   #twitterError
+                break
+                return data
 
 def main():
-    api = twitter.api(consumer_key='XXXX',
+    api = twitter.Api(consumer_key='XXXX',
                       consumer_secret='XXXXX',
                       access_token_key='XXXXX',
                       access_token_secret='XXXXXX')
     user=api.GetUser(screen_name="XXXXXX")
     count = 100 # you can find optimum value by trial & error
-    while True:
-        api.GetFollowerIDs(user,count)
+    while(#users not empty):
+        users=api.GetFollowerIDs(user,count)
